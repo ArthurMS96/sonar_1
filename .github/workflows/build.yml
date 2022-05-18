@@ -19,6 +19,7 @@ jobs:
           echo "Unit test"
           coverage run -m unittest discover
           coverage xml -o coverage.xml
+          ls
 
   sonarcloud:
     name: SonarCloud
