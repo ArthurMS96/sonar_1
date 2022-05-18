@@ -19,7 +19,7 @@ jobs:
           pip install --no-cache-dir -r requirements.txt
           echo "Unit test"
           coverage run -m unittest discover
-          coverage xml -o coverage.xml
+          coverage xml -o coverage2.xml
           ls
 
   sonarcloud:
@@ -32,6 +32,8 @@ jobs:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
+        run: |
+          ls
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
